@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -41,12 +42,16 @@
     <Compile Include="BuySellStrategies\IBuySellStrategy.cs" />
     <Compile Include="MarketData.cs" />
     <Compile Include="Price.cs" />
+<<<<<<< HEAD
     <Compile Include="BuySellStrategies\Signal.cs" />
     <Compile Include="BuySellStrategies\BuySellStrategy.cs" />
     <Compile Include="BuySellStrategies\SignalEventArgs.cs" />
     <Compile Include="Util.cs" />
     <Compile Include="Generators\DataGeneratedEventArgs.cs" />
     <Compile Include="Generators\RandomMarketDataGenerator.cs" />
+=======
+    <Compile Include="Generators\YahooDataGenerator.cs" />
+>>>>>>> add SPY.csv and YahooDataGenerator
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -65,4 +70,7 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
+  <ItemGroup>
+    <None Include="SPY.csv" />
+  </ItemGroup>
 </Project>

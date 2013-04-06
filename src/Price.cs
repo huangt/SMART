@@ -12,18 +12,59 @@ namespace SMART
 		/// </summary>
 		/// <param name="price">Price.</param>
 		/// <param name="change">Change.</param>
-		public Price(double price, double change) 
+		public Price(string dateString, double open, double high, double low, 
+		             double price, double change, double volume) 
 			: this()
 		{
-			Value = price;
+			Close = price;
 			Change = change;
+<<<<<<< HEAD
+=======
+			AsOfDate = Convert.ToDateTime(dateString);
+			Open = open;
+			High = high;
+			Low = low;
+			Volume = volume;
+			// TODO: Compute the percent change automatically.
+			PercentChange = 0.0;
+>>>>>>> add SPY.csv and YahooDataGenerator
 		}
 
 		/// <summary>
-		/// Gets the price.
+		/// Gets the trade volume.
 		/// </summary>
-		/// <value>The price.</value>
-		public double Value { get; private set; }
+		/// <value>The trade volume.</value>
+		public double Volume { get; private set; }
+
+		/// <summary>
+		/// Gets the low price.
+		/// </summary>
+		/// <value>The lowest price intraday.</value>
+		public double Low { get; private set; }
+
+		/// <summary>
+		/// Gets the high price.
+		/// </summary>
+		/// <value>The highest price intraday.</value>
+		public double High { get; private set; }
+
+		/// <summary>
+		/// Gets the open price.
+		/// </summary>
+		/// <value>The open price.</value>
+		public double Open { get; private set; }
+
+		/// <summary>
+		/// Gets the date.
+		/// </summary>
+		/// <value>The date.</value>
+		public DateTime AsOfDate { get; private set; }
+
+		/// <summary>
+		/// Gets the closing price.
+		/// </summary>
+		/// <value>The closing price.</value>
+		public double Close { get; private set; }
 
 		/// <summary>
 		/// Gets the change.

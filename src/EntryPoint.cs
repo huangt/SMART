@@ -41,6 +41,7 @@ namespace SMART
 		[STAThread]
 		public static void Main (string[] args)
 		{
+<<<<<<< HEAD
             // this is here for test only; individual strategies will implement their own.
             var strategy = new BuySellStrategy(
                 (long tick, MarketData data) => 
@@ -53,6 +54,11 @@ namespace SMART
                     });
 
             WireBuySellEvents(strategy);
+=======
+			MarketGenerator = new BearMarketGenerator ();
+//			MarketGenerator = new YahooDataGenerator ();
+			InitWaitOnKeypressThread ();
+>>>>>>> add SPY.csv and YahooDataGenerator
 
             var MarketData = new MarketData();
 			var MarketGenerator = new RandomMarketDataGenerator();
