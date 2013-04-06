@@ -43,6 +43,9 @@
     <Compile Include="MarketData.cs" />
     <Compile Include="Price.cs" />
     <Compile Include="BuySellStrategies\RSIBuySellStrategy.cs" />
+    <Compile Include="BuySellStrategies\Signal.cs" />
+    <Compile Include="BuySellStrategies\BuySellStrategy.cs" />
+    <Compile Include="BuySellStrategies\SignalEventArgs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -42,5 +42,14 @@ namespace SMART
 				return ((Value - (Value - Change)) / (Value - Change)) * 100d;
 			}
 		}
+
+        /// <summary>
+        /// Returns a <see cref="System.String"/> that represents the current <see cref="SMART.Price"/>.
+        /// </summary>
+        /// <returns>A <see cref="System.String"/> that represents the current <see cref="SMART.Price"/>.</returns>
+        public override string ToString()
+        {
+            return string.Format("[Price: Value={0}, Change={1}, PercentChange={2}]", Value, Change, PercentChange);
+        }
 	}
 }
