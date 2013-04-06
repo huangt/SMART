@@ -36,6 +36,12 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EntryPoint.cs" />
+    <Compile Include="Generators\IMarketDataGenerator.cs" />
+    <Compile Include="Generators\BearMarketGenerator.cs" />
+    <Compile Include="Generators\MarketDataGenerator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Generators\" />
+  </ItemGroup>
 </Project>
