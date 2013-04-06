@@ -1,12 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BuySellStrategies/IBuySellStrategy.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="BuySellStrategies/RSIBuySellStrategy.cs">
     <Files>
-      <File FileName="EntryPoint.cs" Line="27" Column="4" />
-      <File FileName="Properties/AssemblyInfo.cs" Line="21" Column="1" />
-      <File FileName="Generators/IMarketDataGenerator.cs" Line="15" Column="34" />
-      <File FileName="Generators/BearMarketGenerator.cs" Line="34" Column="13" />
-      <File FileName="BuySellStrategies/IBuySellStrategy.cs" Line="4" Column="2" />
+      <File FileName="Price.cs" Line="17" Column="4" />
+      <File FileName="MarketData.cs" Line="18" Column="16" />
+      <File FileName="EntryPoint.cs" Line="34" Column="49" />
+      <File FileName="BuySellStrategies/IBuySellStrategy.cs" Line="22" Column="3" />
+      <File FileName="BuySellStrategies/RSIBuySellStrategy.cs" Line="3" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

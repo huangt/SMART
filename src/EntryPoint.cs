@@ -9,6 +9,9 @@ namespace SMART
 	/// </summary>
 	class MainClass
 	{
+		/// <summary>
+		/// The wait boolean.
+		/// </summary>
 		static volatile bool wait = false;
 
 		/// <summary>
