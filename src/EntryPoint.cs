@@ -25,7 +25,19 @@ namespace SMART
 		{
 			mktGenerator = new BearMarketGenerator ();
 
-			ThreadPool.QueueUserWorkItem ((object state) => {
+			InitWaitOnKeypressThread ();
+
+			foreach (var price in mktGenerator.Generate()) {
+
+				WaitOnKeypress ();
+
+				Console.WriteLine(price);
+			}
+		}
+
+		static void InitWaitOnKeypressThread ()
+		{
+			ThreadPool.QueueUserWorkItem ((object state) =>  {
 				while (!mktGenerator.Done) {
 					if (Console.KeyAvailable) {
 						switch (Console.ReadKey ().Key) {
@@ -39,14 +51,12 @@ namespace SMART
 					}
 				}
 			});
+		}
 
-
-
-			foreach (var price in mktGenerator.Generate()) {
-				while (wait)
-					;
-				Console.WriteLine(price);
-			}
+		static void WaitOnKeypress ()
+		{
+			while (wait)
+				;
 		}
 	}
 }
