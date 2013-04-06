@@ -9,6 +9,11 @@ namespace SMART
 	/// </summary>
 	class MainClass
 	{
+        /// <summary>
+        /// The done.
+        /// </summary>
+        volatile static bool _done = false;
+
 		/// <summary>
 		/// The entry point of the program, where the program control starts and ends.
 		/// </summary>
@@ -17,14 +22,23 @@ namespace SMART
 		public static void Main (string[] args)
 		{
             MarketData MarketData = new MarketData();
-			MarketDataGenerator MarketGenerator = new BearMarketGenerator();
+			MarketDataGenerator MarketGenerator = new RandomMarketDataGenerator();
 
-			foreach (var price in MarketGenerator.Generate()) {
+            MarketGenerator.DataGeneratedEvent += (object sender, DataGeneratedEventArgs e) => 
+            {
+                Console.WriteLine(e.Price);
+                MarketData.Add(e.Price);
+                Thread.Sleep(1000);
+            };
 
+            MarketGenerator.Start();
+
+            while(!MarketGenerator.Done)
+            {
+
+              
                 WaitOnKeypress();
-               
-				Console.WriteLine(price);
-			}
+            }
 		}
 
 		/// <summary>

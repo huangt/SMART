@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace SMART.Generators
 {
@@ -11,17 +12,39 @@ namespace SMART.Generators
 		/// <summary>
 		/// Initializes a new instance of the <see cref="SMART.Generators.MarketDataGenerator"/> class.
 		/// </summary>
-		public MarketDataGenerator ()
+        public MarketDataGenerator ()
 		{
 			Ticks = 0;
 		}
 
+        /// <summary>
+        /// Start market data generation for this instance.
+        /// </summary>
+        public virtual void Start()
+        {
+            ThreadPool.QueueUserWorkItem(delegate {
+                while(!Done)
+                {
+                    if (DataGeneratedEvent != null)
+                    {
+                        DataGeneratedEvent(this, new DataGeneratedEventArgs(Generate()));
+                        Ticks++;
+                    }
+                }
+            });
+        }
+
 		#region IMarketDataGenerator implementation
+
+        /// <summary>
+        /// Occurs when data generated event.
+        /// </summary>
+        public event EventHandler<DataGeneratedEventArgs> DataGeneratedEvent;
 
 		/// <summary>
 		/// Generate this instance.
 		/// </summary>
-		public abstract IEnumerable<Price> Generate ();
+        public abstract Price Generate();
 
 		#endregion
 

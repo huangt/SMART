@@ -21,9 +21,11 @@ namespace SMART.BuySellStrategies
         /// <summary>
         /// Markets the tick.
         /// </summary>
-        public virtual void MarketTick(long tick)
+        public virtual void MarketTick(long tick, MarketData marketData)
         {
-
+            if (_sellSignal(tick, marketData))
+            {
+            }
         }
 
         /// <summary>

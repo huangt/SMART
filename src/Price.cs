@@ -5,7 +5,7 @@ namespace SMART
 	/// <summary>
 	/// Price.
 	/// </summary>
-	public struct Price
+	public struct Price : IComparable<Price>, IEquatable<Price>
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="SMART.Price"/> struct.
@@ -51,5 +51,52 @@ namespace SMART
         {
             return string.Format("[Price: Value={0}, Change={1}, PercentChange={2}]", Value, Change, PercentChange);
         }
+       
+        /// <param name="a">The alpha component.</param>
+        /// <param name="b">The blue component.</param>
+        public static Price operator+(Price a, Price b)
+        {
+            // TODO: Examine the value of "Change" for addition & subtraction
+            return new Price(a.Value + b.Value, a.Change + b.Change);
+        }
+
+        /// <param name="a">The alpha component.</param>
+        /// <param name="b">The blue component.</param>
+        public static Price operator-(Price a, Price b)
+        {
+            // TODO: Examine the value of "Change" for addition & subtraction
+            return new Price(a.Value - b.Value, a.Change - b.Change);
+        }
+
+        #region IComparable implementation
+
+        /// <Docs>To be added.</Docs>
+        /// <para>Returns the sort order of the current instance compared to the specified object.</para>
+        /// <summary>
+        /// Compares to.
+        /// </summary>
+        /// <returns>The to.</returns>
+        /// <param name="other">Other.</param>
+        public int CompareTo(Price other)
+        {
+            return this.Value.CompareTo(other.Value);
+        }
+
+        #endregion
+
+        #region IEquatable implementation
+
+        /// <summary>
+        /// Determines whether the specified <see cref="SMART.Price"/> is equal to the current <see cref="SMART.Price"/>.
+        /// </summary>
+        /// <param name="other">The <see cref="SMART.Price"/> to compare with the current <see cref="SMART.Price"/>.</param>
+        /// <returns><c>true</c> if the specified <see cref="SMART.Price"/> is equal to the current <see cref="SMART.Price"/>;
+        /// otherwise, <c>false</c>.</returns>
+        public bool Equals(Price other)
+        {
+            return this.Value.Equals(other.Value);
+        }
+
+        #endregion
 	}
 }
