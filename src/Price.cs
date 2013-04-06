@@ -17,9 +17,6 @@ namespace SMART
 		{
 			Value = price;
 			Change = change;
-
-			// TODO: Compute the percent change automatically.
-			PercentChange = 0.0;
 		}
 
 		/// <summary>
@@ -38,7 +35,12 @@ namespace SMART
 		/// Gets the percent change.
 		/// </summary>
 		/// <value>The percent change.</value>
-		public double PercentChange { get; private set; }
+		public double PercentChange 
+		{
+			get
+			{
+				return ((Value - (Value - Change)) / (Value - Change)) * 100d;
+			}
+		}
 	}
 }
-
