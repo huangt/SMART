@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace SMART.Generators
 {
@@ -15,11 +16,20 @@ namespace SMART.Generators
 			Ticks = 0;
 		}
 
+		#region IMarketDataGenerator implementation
+
+		/// <summary>
+		/// Generate this instance.
+		/// </summary>
+		public abstract IEnumerable<double> Generate ();
+
+		#endregion
+
 		/// <summary>
 		/// Gets or sets the ticks.
 		/// </summary>
 		/// <value>The ticks for this generator</value>
-		public long Ticks { get; private set; }
+		public long Ticks { get; protected set; }
 
 		/// <summary>
 		/// Gets or sets a value indicating whether this <see cref="SMART.Generators.MarketDataGenerator"/> is done.
