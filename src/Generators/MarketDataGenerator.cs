@@ -21,7 +21,7 @@ namespace SMART.Generators
 		/// <summary>
 		/// Generate this instance.
 		/// </summary>
-		public abstract IEnumerable<double> Generate ();
+		public abstract IEnumerable<Price> Generate ();
 
 		#endregion
 

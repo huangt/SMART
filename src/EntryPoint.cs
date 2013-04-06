@@ -14,7 +14,12 @@ namespace SMART
 		/// <summary>
 		/// The mkt generator.
 		/// </summary>
-		static MarketDataGenerator mktGenerator;
+		static MarketDataGenerator MarketGenerator;
+
+		/// <summary>
+		/// The market data.
+		/// </summary>
+		static MarketData MarketData = new MarketData();
 
 		/// <summary>
 		/// The entry point of the program, where the program control starts and ends.
@@ -23,11 +28,11 @@ namespace SMART
 		[STAThread]
 		public static void Main (string[] args)
 		{
-			mktGenerator = new BearMarketGenerator ();
+			MarketGenerator = new BearMarketGenerator ();
 
 			InitWaitOnKeypressThread ();
 
-			foreach (var price in mktGenerator.Generate()) {
+			foreach (var price in MarketGenerator.Generate()) {
 
 				WaitOnKeypress ();
 
@@ -35,10 +40,13 @@ namespace SMART
 			}
 		}
 
+		/// <summary>
+		/// Inits the wait on keypress thread.
+		/// </summary>
 		static void InitWaitOnKeypressThread ()
 		{
 			ThreadPool.QueueUserWorkItem ((object state) =>  {
-				while (!mktGenerator.Done) {
+				while (!MarketGenerator.Done) {
 					if (Console.KeyAvailable) {
 						switch (Console.ReadKey ().Key) {
 						default:
@@ -53,6 +61,9 @@ namespace SMART
 			});
 		}
 
+		/// <summary>
+		/// Waits for on keypress if required.
+		/// </summary>
 		static void WaitOnKeypress ()
 		{
 			while (wait)

@@ -21,11 +21,11 @@ namespace SMART.Generators
 		/// <summary>
 		/// Generates a bear market
 		/// </summary>
-		public override IEnumerable<double> Generate ()
+		public override IEnumerable<Price> Generate ()
 		{
 			while(!Done)
 			{
-				yield return 0.0;
+				yield return new Price();
 
 				Ticks++;
 			}

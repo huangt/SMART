@@ -12,7 +12,7 @@ namespace SMART.Generators
 		/// <summary>
 		/// Generate a stream of market data. Most implementations will use the <code>yield return</code> mechanism.
 		/// </summary>
-		IEnumerable<double> Generate();
+		IEnumerable<Price> Generate();
 	}
 }
 

@@ -39,9 +39,22 @@
     <Compile Include="Generators\IMarketDataGenerator.cs" />
     <Compile Include="Generators\BearMarketGenerator.cs" />
     <Compile Include="Generators\MarketDataGenerator.cs" />
+    <Compile Include="BuySellStrategies\IBuySellStrategy.cs" />
+    <Compile Include="MarketData.cs" />
+    <Compile Include="Price.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Generators\" />
+    <Folder Include="BuySellStrategies\" />
   </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <DotNetNamingPolicy DirectoryNamespaceAssociation="Hierarchical" ResourceNamePolicy="FileFormatDefault" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
 </Project>
